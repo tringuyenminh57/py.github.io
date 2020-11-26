@@ -1,0 +1,22 @@
+[{
+ "id": 1,
+ "name": "Phòng A",
+ "description": "1 Giuong , 1 Toilet",
+ "price": 150000,
+ "image": "",
+ "room_type_id": 1
+}, {
+ "id": 2,
+ "name": "Phong B",
+ "description": "1 Giuong , 1 Toilet , 1 TV",
+ "price": 170000,
+ "image": "",
+ "room_type_id": 2
+}, {
+ "id": 3,
+ "name": "Phong C",
+ "description": "2 Giuong , 1 Toilet, 1 TV",
+ "price": 200000,
+ "image": "",
+ "room_type_id": 3
+}]

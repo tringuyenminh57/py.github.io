@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Management</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">ROOM MANAGEMENT</h1>
+        <div>
+            <form>
+                <div class="form-group">
+                    <input placeholder="Nhập từ khóa tìm kiếm..."
+                           name="kw"
+                           class="form-control" />
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <input type="number"
+                               name="from_price"
+                               class="form-control"
+                               placeholder="Nhập giá bắt đầu..." />
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <input type="number"
+                               name="to_price"
+                               class="form-control"
+                               placeholder="Nhập giá kết thúc..." />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit"
+                           class="btn btn-danger"
+                           value="Tìm kiếm" />
+                </div>
+            </form>
+        </div>
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>Id</th>
+                <td>Name</td>
+                <td>Price</td>
+            </tr>
+            {% for r in rooms %}
+            <tr>
+                <td>
+                    <img width="120" alt="{{ r.name }}" src="{{ url_for('static', filename=r.image) }}" />
+                </td>
+                <td>{{ r.id }}</td>
+                <td>
+                    <a href="{{ url_for('room_detail', room_id=r.id) }}">{{ r.name }}</a>
+                </td>
+                <td>{{ "{:,.1f}".format(r.price) }} VNĐ</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

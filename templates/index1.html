@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+</head>
+<body>
+    <h1 class="text-center">HOSTEL MANAGEMENT</h1>
+    <a href="{{ url_for('register') }}">SIGN UP</a>
+    <ul>
+        <li><a href="{{ url_for('product_list') }}"> Tất cả </a></li>
+        {% for r in room_type %}
+        <li><a href="{{ url_for('room_list', room_type=r.id) }}"> {{ r.name }} </a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
